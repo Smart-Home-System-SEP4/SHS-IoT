@@ -10,7 +10,7 @@
 #include "uid_constants.h"
 #include "ServerResponseDAO.h"
 #include <stdio.h>
-
+#include"tone.h"
 
 
 // Assuming device_UID is a string, adjust the type accordingly
@@ -35,8 +35,9 @@ DownLinkDTO* getTestDownLinkDTO() {
 }
 
 void initializeSensors() {
+    tone_init();
     // Change the function call to initialize the servo module
-    
+    tone_play_windows_xp_startup();
     initServo();
 
     // Initialize other sensors and communication modules

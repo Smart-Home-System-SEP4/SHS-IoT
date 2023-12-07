@@ -27,19 +27,19 @@ void moveServoModuleBasedOnConditions(uint8_t temperature_integer, uint8_t humid
         if (temperature_integer > temperatureLimitHigh && humidity_integer > humidityLimitHigh) {
             // Move servo to servoLimitHigh degrees if not already there
             if (currentServoPosition != servoLimitHigh) {
-                
+                tone_play_windows_xp_error();
                 moveServoToAngle(servoLimitHigh);
             }
         } else if (temperature_integer < temperatureLimitLow && humidity_integer < humidityLimitLow) {
             // Move servo to servoLimitLow degrees if not already there
             if (currentServoPosition != servoLimitLow) {
-               
+              tone_play_windows_xp_error();
                 moveServoToAngle(servoLimitLow);
             }
         } else {
             // Move servo to 0 degrees if not already there
             if (currentServoPosition != servoNormal) {
-               
+              tone_play_windows_xp_error();
                 moveServoToAngle(servoNormal);
             }
         }

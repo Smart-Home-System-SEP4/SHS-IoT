@@ -108,3 +108,25 @@ void tone_play_starwars(){
     tone_play(440, 150);  // A4 for 150 ms
     tone_play(392, 1000); // G4 for 1000 ms
 }
+void tone_play_windows_xp_startup() {
+    // Define the frequency and duration for each note
+    uint16_t frequencies[] = {659, 659, 659, 523, 587, 659, 784, 784, 784, 740, 587, 523, 466, 440, 392};
+    uint16_t durations[] = {150, 150, 150, 150, 150, 150, 300, 150, 150, 150, 150, 150, 150, 150, 300};
+
+    // Play each note in the melody
+    for (size_t i = 0; i < sizeof(frequencies) / sizeof(frequencies[0]); i++) {
+        tone_play(frequencies[i], durations[i]);
+        _delay_ms(50); // Add a small delay between notes for a more accurate representation
+    }
+}
+void tone_play_windows_xp_error() {
+    // Define the frequency and duration for each note
+    uint16_t frequencies[] = {784, 659, 523, 659, 784};
+    uint16_t durations[] = {100, 100, 100, 100, 300};
+
+    // Play each note in the error sound
+    for (size_t i = 0; i < sizeof(frequencies) / sizeof(frequencies[0]); i++) {
+        tone_play(frequencies[i], durations[i]);
+        _delay_ms(50); // Add a small delay between notes for a more accurate representation
+    }
+}
