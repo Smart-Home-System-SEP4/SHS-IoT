@@ -19,6 +19,8 @@
 #include <avr/interrupt.h> // Include the interrupt header
 #include <stdio.h>
 #include"dht11_module.h"
+#include"operations_module.h"
+#include"dht11_module.h"
 int main(void) {
     // Initialize UART for USART0, configure baud rate and callback (if needed).
     uart_init(USART_0, 9600, NULL);
@@ -26,7 +28,7 @@ int main(void) {
     // Enable global interrupts.
     sei();
 
-    dht11_init(); // Initialize the DHT11 sensor
+    initializeSensors();
 
     while (1) {
         uint8_t humidity_integer, humidity_decimal, temperature_integer, temperature_decimal;
@@ -35,7 +37,9 @@ int main(void) {
         if (readDHT11DataWithRetry(&humidity_integer, &humidity_decimal, &temperature_integer, &temperature_decimal)) {
             snprintf(str, sizeof(str), "Humidity = %d.%d%% and the temperature = %d.%d C\n\n", 
                 humidity_integer, humidity_decimal, temperature_integer, temperature_decimal);
-
+                // Display sensor data on the 7-segment display
+                 displayData(temperature_integer, temperature_decimal, humidity_integer);
+   
             // Transmit the message over UART
             uart_send_string_blocking(USART_0, str);
         } else {
