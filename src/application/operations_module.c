@@ -12,7 +12,11 @@
 #include "cJSON.h"
 #include "UpLinkDTO.h"
 #include <stdio.h>
+#include "uid_constants.h"
 
+
+//Unique ID for Device Identification
+char device_UID[] = "SHSDIG9988";
 
 // Function to get a test DownLinkDTO (replace this with actual logic)
 DownLinkDTO* getTestDownLinkDTO() {
@@ -31,12 +35,13 @@ DownLinkDTO* getTestDownLinkDTO() {
 
 
 void initializeSensors() {
-
-
     // Initialize other sensors and communication modules
     dht11_init();
     display_init();
     initPCCommAndWiFi();
+
+    // Initialize the device UID
+    initializeDeviceUID();
 }
 
 void performOperations() {
@@ -47,7 +52,7 @@ void performOperations() {
     if (readDHT11DataWithRetry(&humidity_integer, &humidity_decimal, &temperature_integer, &temperature_decimal)) {
         
         // Create UpLinkDTO
-        UpLinkDTO* uplinkDto = createUpLinkDTO(temperature_integer, temperature_decimal, humidity_integer);
+        UpLinkDTO* uplinkDto = createUpLinkDTO(temperature_integer, temperature_decimal, humidity_integer, device_UID);
 
         // Serialize UpLinkDTO to JSON
         cJSON* uplinkJson = serializeUpLinkDTO(uplinkDto);
@@ -61,9 +66,9 @@ void performOperations() {
 
         // Print UpLinkDTO content
         if (uplinkDto != NULL) {
-            printf("UpLinkDTO - Temperature: %d.%d°C, Humidity: %d.%d%%",
+            printf("UpLinkDTO - Temperature: %d.%d°C, Humidity: %d.%d%%, DeviceUID: %s\n",
                    uplinkDto->temperature_integer, uplinkDto->temperature_decimal,
-                   uplinkDto->humidity_integer);
+                   uplinkDto->humidity_integer, uplinkDto->device_UID);
             free(uplinkDto);
         }
 
@@ -76,16 +81,17 @@ void performOperations() {
         cJSON* downlinkJson = serializeDownLinkDTO(downlinkDto);
 
 
-
+        // Deserialize DownLinkDTO from JSON (if needed)
+        DownLinkDTO* deserializedDownlinkDto = deserializeDownLinkDTO(downlinkJson);
 
         // Clean up
-        cJSON_Delete(uplinkJson);
         free(uplinkDto);
+        cJSON_Delete(uplinkJson);
         free (serializeUpLinkDTO);
 
-        cJSON_Delete(downlinkJson);
         free(downlinkDto);
-        
+        cJSON_Delete(downlinkJson);
+        free(deserializedDownlinkDto);
     }
 
 }

@@ -21,7 +21,7 @@ typedef struct {
     
 } DownLinkDTO;
 // Function to create a DownLinkDTO
-DownLinkDTO* createDownLinkDTO(uint8_t temperature_limit_high,uint8_t temperature_limit_low, uint8_t humidity_limit_high,
+DownLinkDTO* createDownLinkDTO(const char* device_UID, uint8_t temperature_limit_high,uint8_t temperature_limit_low, uint8_t humidity_limit_high,
                                uint8_t humidity_limit_low, uint8_t servo_limit_high, uint8_t servo_normal,
                                uint8_t servo_limit_low);
 

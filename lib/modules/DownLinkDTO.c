@@ -3,13 +3,16 @@
 #include "includes.h"
 
 
-DownLinkDTO* createDownLinkDTO(uint8_t temperature_limit_high,
+DownLinkDTO* createDownLinkDTO(const char* device_UID, uint8_t temperature_limit_high,
                                uint8_t temperature_limit_low, uint8_t humidity_limit_high,
                                uint8_t humidity_limit_low, uint8_t servo_limit_high, uint8_t servo_normal,
                                uint8_t servo_limit_low) {
     DownLinkDTO* dto = (DownLinkDTO*)malloc(sizeof(DownLinkDTO));
 
     if (dto != NULL) {
+        // Copy UID to the DTO
+        strncpy(dto->device_UID, device_UID, UID_LENGTH);
+        dto->device_UID[UID_LENGTH] = '\0';  // Ensure null termination
         // Set temperature, humidity, and servo limits
         dto->temperature_limit_high = temperature_limit_high;
         dto->temperature_limit_low = temperature_limit_low;
@@ -43,6 +46,7 @@ DownLinkDTO* deserializeDownLinkDTO(const cJSON* json) {
     DownLinkDTO* dto = (DownLinkDTO*)malloc(sizeof(DownLinkDTO));
 
     if (dto != NULL) {
+        cJSON* uid = cJSON_GetObjectItemCaseSensitive(json, "device_UID");
         // Retrieve temperature, humidity, and servo limits
         cJSON* tempLimitHigh = cJSON_GetObjectItemCaseSensitive(json, "temperature_limit_high");
         cJSON* tempLimitLow = cJSON_GetObjectItemCaseSensitive(json, "temperature_limit_low");
@@ -52,10 +56,12 @@ DownLinkDTO* deserializeDownLinkDTO(const cJSON* json) {
         cJSON* servoNormal = cJSON_GetObjectItemCaseSensitive(json, "servo_normal");
         cJSON* servoLimitLow = cJSON_GetObjectItemCaseSensitive(json, "servo_limit_low");
 
-        if (cJSON_IsNumber(tempLimitHigh)  &&
+        if (cJSON_IsString(uid) && cJSON_IsNumber(tempLimitHigh)  &&
             cJSON_IsNumber(tempLimitLow) && cJSON_IsNumber(humLimitHigh)  &&
             cJSON_IsNumber(humLimitLow) && cJSON_IsNumber(servoLimitHigh) && cJSON_IsNumber(servoNormal) &&
             cJSON_IsNumber(servoLimitLow)) {
+            strncpy(dto->device_UID, uid->valuestring, UID_LENGTH);
+            dto->device_UID[UID_LENGTH] = '\0';  // Ensure null termination
 
             // Set temperature, humidity, and servo limits
             dto->temperature_limit_high = tempLimitHigh->valueint;
