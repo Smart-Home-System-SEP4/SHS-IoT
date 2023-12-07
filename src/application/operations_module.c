@@ -13,10 +13,15 @@
 #include "UpLinkDTO.h"
 #include <stdio.h>
 #include "uid_constants.h"
+#include "ServerResponseDAO.h"
 
 
 //Unique ID for Device Identification
 char device_UID[] = "SHSDIG9988";
+
+
+extern char serverResponseJsonString[MAX_RESPONSE_LENGTH];  // Extern declaration
+
 
 // Function to get a test DownLinkDTO (replace this with actual logic)
 DownLinkDTO* getTestDownLinkDTO() {
