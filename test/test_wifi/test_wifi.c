@@ -85,13 +85,13 @@ void test_wifi_send_stuff()
      _delay_ms(500);
 }
 
-// void test_wifi_receive_stuff()
-// {
-//     received_buffer[4] = '\0';
-//     _delay_ms(500);
+void test_wifi_receive_stuff()
+{
+    received_buffer[4] = '\0';
+    _delay_ms(500);
 
-//     TEST_ASSERT_EQUAL_STRING("1234", received_buffer);
-// }
+    TEST_ASSERT_EQUAL_STRING("1234", received_buffer);
+}
 
 void test_wifi_close_tcp(){
     TEST_ASSERT_EQUAL(WIFI_OK, wifi_command_close_TCP_connection());
