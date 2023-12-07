@@ -1,71 +1,47 @@
 #include "includes.h"
-#include "periodic_task.h"
-#include "pc_comm.h"
+#include "dht11.h"
 #include "display.h"
 #include "leds.h"
-#include "servo.h"
+#include "light.h"
+#include "buzzer.h"
+#include "buttons.h"
+#include "periodic_task.h"
+#include "adxl345.h"
+#include "hc_sr04.h"
+#include "wifi.h"
+#include "avr/power.h"
+#include "pir.h"
+#include "tone.h"
+#include <util/delay.h>
+#include <avr/io.h>
+#include <avr/interrupt.h> // Include the interrupt header
+#include <stdio.h>
+#include"dht11_module.h"
+int main(void) {
+    // Initialize UART for USART0, configure baud rate and callback (if needed).
+    uart_init(USART_0, 9600, NULL);
 
+    // Enable global interrupts.
+    sei();
 
-void func_a(){
-//static uint16_t i = -10;
-//display_int(i++);
+    dht11_init(); // Initialize the DHT11 sensor
 
-pc_comm_send_string_blocking("!!!!!!!!!!!!!!!!!!!!!");
-}
+    while (1) {
+        uint8_t humidity_integer, humidity_decimal, temperature_integer, temperature_decimal;
+        char str[64];
 
-void func_b(){
-    static uint8_t state = 0;
-    if (state==0)
-    {
-        servo(50);
-        state = 1;
+        if (readDHT11DataWithRetry(&humidity_integer, &humidity_decimal, &temperature_integer, &temperature_decimal)) {
+            snprintf(str, sizeof(str), "Humidity = %d.%d%% and the temperature = %d.%d C\n\n", 
+                humidity_integer, humidity_decimal, temperature_integer, temperature_decimal);
+
+            // Transmit the message over UART
+            uart_send_string_blocking(USART_0, str);
+        } else {
+            uart_send_string_blocking(USART_0, "Failed to read DHT11 data\n");
+        }
+
+        // Delay before the next DHT11 sensor reading
+        _delay_ms(2000);
     }
-    else {
-        servo(100);
-        state = 0;
-    }
-    
-
-}
-
-void func_c(){
-
-sei();
-pc_comm_send_string_blocking("   _______________                        |*\\_/*|________\n"
-"  |  ___________  |     .-.     .-.      ||_/-\\_|______  |\n"
-"  | |           | |    .****. .****.     | |           | |\n"
-"  | |   0   0   | |    .*****.*****.     | |   0   0   | |\n"
-"  | |     -     | |     .*********.      | |     -     | |\n"
-"  | |   \\___/   | |      .*******.       | |   \\___/   | |\n"
-"  | |___     ___| |       .*****.        | |___________| |\n"
-"  |_____|\\_/|_____|        .***.         |_______________|\n"
-"    _|__|/ \\|_|_.............*.............._|________|_\n"
-"   / ********** \\                          / ********** \\\n"
-" /  ************  \\                      /  ************  \\\n"
-"--------------------                    --------------------\n");
-
-}
-
-int main(void)
-{
-
-    //display_init();
-    leds_init();
-    pc_comm_init(9600, ((void *)0));
-    
-    
-    periodic_task_init_a(func_a, 3300);
-    //periodic_task_init_b(func_b, 5000);
-     periodic_task_init_c(func_c, 1000);
-while (1)
-{
-    
-   
-   
-}
-
-   
-
-
     return 0;
 }
