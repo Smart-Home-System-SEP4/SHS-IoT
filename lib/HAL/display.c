@@ -33,10 +33,15 @@ const static uint8_t hex_digits[] = {
     0b01111001, // E
     0b01110001, // F
     0b01000000, // '-' (Negative sign)
-    0b00000000  // (Empty space)
+    0b00000000,  // (Empty space)
+    0b01110110, // 'H'
+    0b01111000  // '.' (Dot)
 };
 
 uint8_t static display_data[] = {0x3, 0x3, 0x3, 0x3};
+
+
+
 
 void display_setValues(uint8_t seg1, uint8_t seg2, uint8_t seg3, uint8_t seg4)
 {
@@ -99,9 +104,15 @@ void pulse_latch();
 
 void display_init()
 {
+    // Configure LATCH, DATA, and CLOCK pins as outputs
     LATCH_DDR |= (1 << LATCH_BIT);
-    DATA_DDR |= (1 << DATA_BIT); 
-    CLOCK_DDR|= (1 << CLOCK_BIT);
+    DATA_DDR |= (1 << DATA_BIT);
+    CLOCK_DDR |= (1 << CLOCK_BIT);
+
+    // Set LATCH, DATA, and CLOCK pins to their initial states
+    LATCH_PORT |= (1 << LATCH_BIT);  // Set LATCH high
+    DATA_PORT |= (1 << DATA_BIT);    // Set DATA high
+    CLOCK_PORT |= (1 << CLOCK_BIT);  // Set CLOCK high
 
     // Set up Timer1 for CTC mode (Clear Timer on Compare Match)
     TCCR1B |= (1 << WGM12);
@@ -115,7 +126,10 @@ void display_init()
     // Set the prescaler to 8
     TCCR1B |= (1 << CS11);
 
+    // Enable global interrupts
     sei();
+
+    // Initialize display_data array
     display_data[0] = display_data[1] = display_data[2] = display_data[3] = 17;
 }
 #ifndef WINDOWS_TEST
