@@ -76,8 +76,8 @@ void performOperations() {
         }
         
         // Get a test DownLinkDTO (replace this with actual logic)
-       // DownLinkDTO* downlinkDto = deserializeDownLinkDTO(serverResponseJsonString);
-        DownLinkDTO* downlinkDto = getTestDownLinkDTO();
+        DownLinkDTO* downlinkDto = deserializeDownLinkDTO(serverResponseJsonString);
+        //DownLinkDTO* downlinkDto = getTestDownLinkDTO();
 
         // Serialize DownLinkDTO to JSON
         cJSON* downlinkJson = serializeDownLinkDTO(downlinkDto);
