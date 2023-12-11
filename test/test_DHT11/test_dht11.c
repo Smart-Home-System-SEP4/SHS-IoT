@@ -6,26 +6,20 @@
 DEFINE_FFF_GLOBALS;
 
 void setUp(void) {
-    // Set up any necessary test fixtures
     FFF_RESET_HISTORY();
 }
 
-void tearDown(void) {
-    // Clean up after the test
-}
+void tearDown(void) {}
 
 // Mocks
 FAKE_VOID_FUNC(dht11_init);
 FAKE_VALUE_FUNC(int, readDHT11DataWithRetry, uint8_t*, uint8_t*, uint8_t*, uint8_t*);
 
 void test_DHT11ModuleInitialization(void) {
-    // Set up the expected behavior for the mocked functions
     dht11_init();
 
     // Call the function under test
     dht11_init();
-
-    // Additional conditions if needed
 }
 
 void test_ReadDHT11DataWithRetry(void) {
