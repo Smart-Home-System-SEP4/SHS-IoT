@@ -1,7 +1,7 @@
 // Tests the Wifi module on target
-#define WIFI_SSID "Den gamle daarlige router"
-#define WIFI_PASSWORD "vildfred"
-#define TCP_SERVER "10.0.0.35" // should be running and in echo mode for the test to pass. 
+#define WIFI_SSID ""LOST CuB""
+#define WIFI_PASSWORD "Denmark2022"
+#define TCP_SERVER "192.168.120.179" // should be running and in echo mode for the test to pass. 
 #define TCP_PORT 23
 
 #include "unity.h"
@@ -73,7 +73,7 @@ void receive()
 }
 void test_wifi_create_TCP_connection()
 {
-    TEST_ASSERT_EQUAL(WIFI_OK, wifi_command_create_TCP_connection("192.168.78.179", 23, receive, received_buffer));
+    TEST_ASSERT_EQUAL(WIFI_OK, wifi_command_create_TCP_connection("192.168.120.179", 23, receive, received_buffer));
     TEST_ASSERT_EQUAL(WIFI_OK, wifi_command_TCP_transmit((uint8_t *)"1234567890", 4));
      _delay_ms(500);
 }

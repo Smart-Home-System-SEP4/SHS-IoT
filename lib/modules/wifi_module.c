@@ -17,7 +17,7 @@ void initPCCommAndWiFi() {
     wifi_init();
     
     wifi_command_join_AP("LOST CuB", "Denmark2022");
-    wifi_command_create_TCP_connection("192.168.78.179", 23, NULL, NULL);
+    wifi_command_create_TCP_connection("192.168.120.179", 23, NULL, NULL);
 }
 
 

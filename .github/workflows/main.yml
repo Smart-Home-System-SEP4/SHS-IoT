@@ -26,8 +26,11 @@ jobs:
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
 
-      - name: Run DHT11 Module Test
-        run: pio test -e target_test -v
+      # - name: Run DHT11_Test
+      #   run: pio test -e win_test -v
+
+      - name: Run Tests
+        run: pio test -e target_test -f "target test for all"
 
      # - name: Deploy Firmware
       #  run:
@@ -36,4 +39,3 @@ jobs:
      # - name: Deploy to Production
      #   run:
       #    ./deploy_to_production.sh
-
