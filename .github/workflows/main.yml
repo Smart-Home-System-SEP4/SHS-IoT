@@ -26,16 +26,12 @@ jobs:
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
 
-      - name: Run DHT11_Test
-        run: pio test -e win_test -v
+      - name: Run wifiTest
+        run: pio test -e win_test_wifi -f "test_win_wifi"  
+        
+      - name: run pc_comm test
+        run: pio test -e win_test_pc_comm -f "test_win_pc_comm"  
 
-      - name: Run Tests
-        run: pio test -e target_test -f "target test for all"
+      - name: run Light test
+        run: pio test -e win_test_light -f "test_win_light"  
 
-     # - name: Deploy Firmware
-      #  run:
-       #   ./deploy_firmware.sh
-
-     # - name: Deploy to Production
-     #   run:
-      #    ./deploy_to_production.sh
