@@ -27,7 +27,7 @@ jobs:
         run: pip install --upgrade platformio
 
       - name: Run DHT11_Test
-        run: pio test -e target_test -v
+        run: pio test -e win_test -v
 
      # - name: Deploy Firmware
       #  run:
