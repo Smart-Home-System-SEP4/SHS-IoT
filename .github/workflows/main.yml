@@ -29,6 +29,9 @@ jobs:
       - name: Run DHT11_Test
         run: pio test -e win_test -v
 
+      - name: Run WiFi_Test
+        run: pio test -e win_test_wifi -v
+
      # - name: Deploy Firmware
       #  run:
        #   ./deploy_firmware.sh
