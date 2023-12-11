@@ -1,6 +1,4 @@
 // display_module.c
-
-
 #include "includes.h"
 #include "display.h"
 
