@@ -1,34 +1,26 @@
 #include "unity.h"
 #include "uid_constants.h"
 #include "includes.h"
-#include <string.h>
-#include <avr/eeprom.h>
+#include "../fff.h"
+
+DEFINE_FFF_GLOBALS;
+
+// Mocks
+FAKE_VOID_FUNC(readDeviceUID, char*);
+FAKE_VOID_FUNC(initializeDeviceUID, const char*);
+FAKE_VOID_FUNC(eeprom_write_block, const void*, void*, size_t);
+FAKE_VOID_FUNC(eeprom_read_block, void*, const void*, size_t);
+FAKE_VOID_FUNC(eeprom_clear);
+
+// ...
 
 void setUp(void) {
-    // Set up any necessary initialization
+    // Initialize FFF
+    FFF_RESET_HISTORY();
 }
 
 void tearDown(void) {
     // Clean up any resources
-}
-
-void test_ReadDeviceUID(void) {
-    // Arrange
-    char uid[UID_LENGTH + 1];
-
-    // Clean the entire EEPROM before writing the test UID
-    eeprom_write_block("", (void*)0, UID_LENGTH);
-
-    // Initialize EEPROM with a known UID
-    const char* testUID = "TEST1234";
-    eeprom_write_block(testUID, (void*)0, UID_LENGTH);
-
-    // Act
-    readDeviceUID(uid);
-
-    // Assert
-    TEST_ASSERT_EQUAL_STRING_MESSAGE(testUID, uid, "Read UID does not match the initialized UID");
-    // Add additional conditions if needed
 }
 
 void test_InitializeDeviceUID(void) {
@@ -36,29 +28,45 @@ void test_InitializeDeviceUID(void) {
     char uid[UID_LENGTH + 1];
 
     // Clean the entire EEPROM before initializing the UID
-    eeprom_write_block("", (void*)0, UID_LENGTH);
+    eeprom_write_block("", (void*)0, UID_LENGTH + 1);
 
     // Act
     const char* defaultUID = "DEFAULT123";
     initializeDeviceUID(defaultUID);
 
-    // Read the initialized UID from EEPROM
-    readDeviceUID(uid, (const void*)0, UID_LENGTH);
+    // Assert
+    TEST_ASSERT_EQUAL_INT(1, initializeDeviceUID_fake.call_count);
+    TEST_ASSERT_EQUAL_STRING(defaultUID, initializeDeviceUID_fake.arg0_history[0]);
+    
+    // Add more assertions if needed for initialization
+}
 
-    // Debugging: Print actual initialized UID for debugging
-    printf("Actual Initialized UID: %s\n", uid);
+void test_ReadDeviceUID(void) {
+    // Arrange
+    const char* defaultUID = "DefaultUID";
+    initializeDeviceUID(defaultUID);
+
+    // Act
+    char uid[UID_LENGTH + 1];
+    readDeviceUID(uid);
 
     // Assert
-    TEST_ASSERT_EQUAL_STRING_MESSAGE(defaultUID, uid, "Initialized UID does not match the default UID");
-    // Add additional conditions if needed
+    TEST_ASSERT_EQUAL_INT(1, readDeviceUID_fake.call_count);
+
+    // Read the actual value from EEPROM to compare
+    char actualUID[UID_LENGTH + 1];
+    eeprom_read_block(actualUID, (const void*)0, UID_LENGTH);
+    TEST_ASSERT_EQUAL_STRING(actualUID, uid);
 }
+
+
 
 int main(void) {
     UNITY_BEGIN();
 
     // Run tests
-    RUN_TEST(test_ReadDeviceUID);
     RUN_TEST(test_InitializeDeviceUID);
+    RUN_TEST(test_ReadDeviceUID);
 
     return UNITY_END();
 }

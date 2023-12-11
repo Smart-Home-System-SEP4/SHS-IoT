@@ -1,6 +1,5 @@
 //wifi_module.c
 
-#include <avr/eeprom.h>
 #include "includes.h"
 #include "wifi_module.h"
 #include "wifi.h"
