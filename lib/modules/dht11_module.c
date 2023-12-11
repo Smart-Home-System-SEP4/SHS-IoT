@@ -6,7 +6,7 @@
 #include"uart.h"
 int readDHT11DataWithRetry(uint8_t *humidity_integer, uint8_t *humidity_decimal, uint8_t *temperature_integer, uint8_t *temperature_decimal) {
     // Set the maximum number of retries and the delay between retries
-    int maxRetries = 20;
+    int maxRetries = 10;
     int retryDelay = 100;  // in milliseconds
 
     for (int retry = 0; retry < maxRetries; retry++) {

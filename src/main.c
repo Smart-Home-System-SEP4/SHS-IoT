@@ -1,4 +1,4 @@
-//main.c
+// main.c
 
 #include "includes.h"
 #include "dht11.h"
@@ -30,26 +30,23 @@
 #include "uart.h"  // Ensure you include the UART header file
 
 int main(void) {
-    // Initialize UART for USART0, configure baud rate and callback (if needed).
-    uart_init(USART_0, 9600, NULL);
-
-    // Enable global interrupts.
+    // Enable global interrupts
     sei();
 
+    //initialize Sensors
     initializeSensors();
-
+    
+    // Perform Operations in an infinite loop
     while (1) {
         uint8_t humidity_integer, humidity_decimal, temperature_integer, temperature_decimal;
         char str[64];
 
         if (readDHT11DataWithRetry(&humidity_integer, &humidity_decimal, &temperature_integer, &temperature_decimal)) {
-            // Format sensor data for printing
-            snprintf(str, sizeof(str), "Humidity = %d.%d%% and the temperature = %d.%d C\n",
-                     humidity_integer, humidity_decimal, temperature_integer, temperature_decimal);
-
-            // Display sensor data on the 7-segment display
-            displayData(temperature_integer, temperature_decimal, humidity_integer);
-
+            snprintf(str, sizeof(str), "Humidity = %d.%d%% and the temperature = %d.%d C\n\n", 
+                humidity_integer, humidity_decimal, temperature_integer, temperature_decimal);
+                // Display sensor data on the 7-segment display
+                 displayData(temperature_integer, temperature_decimal, humidity_integer);
+   
             // Transmit the message over UART
             uart_send_string_blocking(USART_0, str);
         } else {
@@ -59,6 +56,5 @@ int main(void) {
         // Delay before the next DHT11 sensor reading
         _delay_ms(2000);
     }
-
     return 0;
 }

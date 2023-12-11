@@ -1,0 +1,134 @@
+[
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib108\\Unity\\unity.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -DUNITY_INCLUDE_CONFIG_H -I.pio\\libdeps\\win_test_light\\Unity\\src .pio\\libdeps\\win_test_light\\Unity\\src\\unity.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": ".pio\\libdeps\\win_test_light\\Unity\\src\\unity.c",
+        "output": ".pio\\build\\win_test_light\\lib108\\Unity\\unity.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\adxl345.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\adxl345.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\adxl345.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\adxl345.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\buttons.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\buttons.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\buttons.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\buttons.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\buzzer.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\buzzer.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\buzzer.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\buzzer.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\dht11.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\dht11.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\dht11.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\dht11.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\display.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\display.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\display.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\display.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\hc_sr04.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\hc_sr04.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\hc_sr04.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\hc_sr04.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\leds.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\leds.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\leds.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\leds.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\light.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\light.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\light.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\light.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\pc_comm.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\pc_comm.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\pc_comm.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\pc_comm.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\periodic_task.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\periodic_task.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\periodic_task.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\periodic_task.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\pir.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\pir.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\pir.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\pir.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\servo.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\servo.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\servo.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\servo.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\tone.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\tone.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\tone.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\tone.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\uart.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\uart.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\uart.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\uart.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\lib7fc\\drivers\\wifi.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Ilib\\include -Ilib\\drivers -Ilib\\mocks lib\\drivers\\wifi.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "lib\\drivers\\wifi.c",
+        "output": ".pio\\build\\win_test_light\\lib7fc\\drivers\\wifi.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\src\\main.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Isrc -Ilib\\include -Ilib\\drivers -Ilib\\mocks -I.pio\\libdeps\\win_test_light\\Unity\\src src\\main.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "src\\main.c",
+        "output": ".pio\\build\\win_test_light\\src\\main.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\src\\source\\dht11_module.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Isrc -Ilib\\include -Ilib\\drivers -Ilib\\mocks -I.pio\\libdeps\\win_test_light\\Unity\\src src\\source\\dht11_module.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "src\\source\\dht11_module.c",
+        "output": ".pio\\build\\win_test_light\\src\\source\\dht11_module.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\src\\source\\display_module.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Isrc -Ilib\\include -Ilib\\drivers -Ilib\\mocks -I.pio\\libdeps\\win_test_light\\Unity\\src src\\source\\display_module.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "src\\source\\display_module.c",
+        "output": ".pio\\build\\win_test_light\\src\\source\\display_module.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\src\\source\\operations_module.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Isrc -Ilib\\include -Ilib\\drivers -Ilib\\mocks -I.pio\\libdeps\\win_test_light\\Unity\\src src\\source\\operations_module.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "src\\source\\operations_module.c",
+        "output": ".pio\\build\\win_test_light\\src\\source\\operations_module.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\src\\source\\uart_module.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Isrc -Ilib\\include -Ilib\\drivers -Ilib\\mocks -I.pio\\libdeps\\win_test_light\\Unity\\src src\\source\\uart_module.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "src\\source\\uart_module.c",
+        "output": ".pio\\build\\win_test_light\\src\\source\\uart_module.o"
+    },
+    {
+        "command": "gcc -o .pio\\build\\win_test_light\\src\\source\\wifi_module.o -c -DPLATFORMIO=60111 -DWINDOWS_TEST -DEXCLUDE_UART -Isrc -Ilib\\include -Ilib\\drivers -Ilib\\mocks -I.pio\\libdeps\\win_test_light\\Unity\\src src\\source\\wifi_module.c",
+        "directory": "C:\\Users\\Claud\\Desktop\\SEP4_IoT\\SEP4_IoT",
+        "file": "src\\source\\wifi_module.c",
+        "output": ".pio\\build\\win_test_light\\src\\source\\wifi_module.o"
+    }
+]
