@@ -1,6 +1,6 @@
 // uid_constants.c
 #include "uid_constants.h"
-#include <avr/eeprom.h>
+
 #include "includes.h"
 
 void readDeviceUID(char* uid) {
