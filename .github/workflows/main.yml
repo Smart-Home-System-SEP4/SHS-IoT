@@ -1,5 +1,13 @@
 name: IoT CI/CD
+name: IoT CI/CD
 
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
 on:
   push:
     branches:
@@ -22,6 +30,7 @@ jobs:
           key: ${{ runner.os }}-pio
       - uses: actions/setup-python@v4
         with:
+          python-version: "3.9"
           python-version: "3.9"
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
