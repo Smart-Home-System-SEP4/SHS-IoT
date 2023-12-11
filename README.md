@@ -1,6 +1,5 @@
-#SEP 4 (IoT - Team)
+# _SEP 4 (IoT - Team)_
 
-
-Smart Home System (SHS)
+<h1> Smart Home System (SHS)
 
 ![Logo](SmartHomeSystem-SEP4.jpg)
