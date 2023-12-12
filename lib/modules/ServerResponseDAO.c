@@ -1,7 +1,6 @@
 // Assuming ServerResponseDAO.c
 #include "ServerResponseDAO.h"
-#include "DownLinkDTO.h"
-#include "cJSON.h"
+
 
 // Assuming a global variable to store the server response
 char serverResponseJsonString[MAX_RESPONSE_LENGTH];  // Adjust the length accordingly

@@ -1,9 +1,7 @@
 // servo_module.c
-#include "includes.h"
+
 #include "servo_module.h"
-#include "servo.h"
-#include "DownLinkDTO.h"
-#include "tone.h"
+
 
 int n = 40; // Set the value of n to the desired number of calls
 

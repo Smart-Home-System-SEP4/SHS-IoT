@@ -1,13 +1,9 @@
 //wifi_module.c
 
-#include <avr/eeprom.h>
-#include "includes.h"
+
+
 #include "wifi_module.h"
-#include "wifi.h"
-#include "pc_comm.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include "cJSON.h"
+
 
 
 static WiFiCallback wifiCallback = NULL;

@@ -4,7 +4,8 @@
 #define SERVO_MODULE_H
 #include "DownLinkDTO.h"
 #include <stdint.h>
-
+#include "servo.h"
+#include "tone.h"
 
 void moveNewAngle(const DownLinkDTO* downLinkDTO);
 

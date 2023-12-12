@@ -6,6 +6,7 @@
 #include "uid_constants.h"
 #include "cJSON.h"
 
+
 typedef struct {
     uint8_t temperature_integer;
     uint8_t temperature_decimal;
