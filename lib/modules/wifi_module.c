@@ -13,7 +13,7 @@ void initPCCommAndWiFi() {
     wifi_init();
     
     wifi_command_join_AP("LOST CuB", "Denmark2022");
-    wifi_command_create_TCP_connection("192.168.98.179", 23, NULL, NULL);
+    wifi_command_create_TCP_connection("192.168.98.179", 5000, NULL, NULL);
 }
 
 
@@ -36,7 +36,7 @@ void sendDTO_to_WiFi(const cJSON* json) {
                 wifi_command_TCP_transmit(wrappedBuffer, strlen(wrappedBuffer));
                 pc_comm_send_string_blocking(wrappedBuffer);
 
-                // Free the buffers after transmission
+                 // Free the buffers after transmission
                 free(wrappedBuffer);
             } else {
                 fprintf(stderr, "Error: Memory allocation failed\n");
