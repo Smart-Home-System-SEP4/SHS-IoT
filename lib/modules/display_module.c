@@ -1,6 +1,12 @@
 // display_module.c
+#include "display.h"
 
-#include "display_module.h"
+#ifdef AVR_PLATFORM
+    #include <util/delay.h>
+    #define DELAY_MS(ms) _delay_ms(ms)
+#else
+    #define DELAY_MS(ms)
+#endif
 
 void displayData(uint8_t temperature_integer, uint8_t temperature_decimal, uint8_t humidity_integer) {
     // Break down the values for temperature integer
