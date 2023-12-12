@@ -6,6 +6,8 @@
 #include <stdint.h>
 
 
+void moveNewAngle(const DownLinkDTO* downLinkDTO);
+
 void moveServoModuleBasedOnConditions(uint8_t temperature_integer, uint8_t humidity_integer, const DownLinkDTO* downLinkDTO);
 
 
