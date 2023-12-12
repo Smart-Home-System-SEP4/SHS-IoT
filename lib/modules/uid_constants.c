@@ -1,6 +1,10 @@
 // uid_constants.c
 #include "uid_constants.h"
 
+<<<<<<< HEAD
+=======
+#include "includes.h"
+>>>>>>> 5d90f8922071045b5b1d7cb5f61f1a73e2607635
 
 void readDeviceUID(char* uid) {
     eeprom_read_block(uid, (const void*)0, UID_LENGTH);

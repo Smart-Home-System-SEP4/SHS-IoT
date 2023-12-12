@@ -1,7 +1,11 @@
 //wifi_module.c
 
 
+<<<<<<< HEAD
 
+=======
+#include "includes.h"
+>>>>>>> 5d90f8922071045b5b1d7cb5f61f1a73e2607635
 #include "wifi_module.h"
 
 
@@ -13,7 +17,7 @@ void initPCCommAndWiFi() {
     wifi_init();
     
     wifi_command_join_AP("LOST CuB", "Denmark2022");
-    wifi_command_create_TCP_connection("192.168.78.179", 23, NULL, NULL);
+    wifi_command_create_TCP_connection("192.168.98.179", 23, NULL, NULL);
 }
 
 
