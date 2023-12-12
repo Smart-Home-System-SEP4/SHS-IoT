@@ -32,7 +32,7 @@ jobs:
           pio test -e win_test_wifi -v
           pio test -e win_test_pc_comm -v
           pio test -e win_test_light -v
-#         pio test -e target_test -v 
+          pio test -e target_test -v 
           
 
 
