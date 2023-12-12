@@ -1,11 +1,8 @@
 // UpLinkDTO.c
 #include "UpLinkDTO.h"
-<<<<<<< HEAD
-=======
 #include "includes.h"
 #include "uid_constants.h"
 
->>>>>>> 5d90f8922071045b5b1d7cb5f61f1a73e2607635
 
 
 UpLinkDTO* createUpLinkDTO(uint8_t temperature_integer, uint8_t temperature_decimal,

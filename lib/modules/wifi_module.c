@@ -1,11 +1,7 @@
 //wifi_module.c
 
 
-<<<<<<< HEAD
 
-=======
-#include "includes.h"
->>>>>>> 5d90f8922071045b5b1d7cb5f61f1a73e2607635
 #include "wifi_module.h"
 
 

@@ -2,13 +2,7 @@
 
 
 #include "dht11_module.h"
-<<<<<<< HEAD
 
-
-=======
-#include "dht11.h"
-#include"uart.h"
->>>>>>> 5d90f8922071045b5b1d7cb5f61f1a73e2607635
 int readDHT11DataWithRetry(uint8_t *humidity_integer, uint8_t *humidity_decimal, uint8_t *temperature_integer, uint8_t *temperature_decimal) {
     // Set the maximum number of retries and the delay between retries
     int maxRetries = 10;
