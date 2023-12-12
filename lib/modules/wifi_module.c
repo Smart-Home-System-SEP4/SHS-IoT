@@ -1,13 +1,9 @@
 //wifi_module.c
 
 
-#include "includes.h"
+
 #include "wifi_module.h"
-#include "wifi.h"
-#include "pc_comm.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include "cJSON.h"
+
 
 
 static WiFiCallback wifiCallback = NULL;
@@ -40,7 +36,7 @@ void sendDTO_to_WiFi(const cJSON* json) {
                 wifi_command_TCP_transmit(wrappedBuffer, strlen(wrappedBuffer));
                 pc_comm_send_string_blocking(wrappedBuffer);
 
-                // Free the buffers after transmission
+                 // Free the buffers after transmission
                 free(wrappedBuffer);
             } else {
                 fprintf(stderr, "Error: Memory allocation failed\n");

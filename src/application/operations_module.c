@@ -1,17 +1,4 @@
-#include "includes.h"
-#include "servo_module.h"
-#include "UpLinkDTO.h"
-#include "DownLinkDTO.h"
-#include "cJSON.h"
-#include "dht11_module.h"
-#include "display_module.h"
-#include "wifi.h"
-#include "wifi_module.h"
-#include "uid_constants.h"
-#include "ServerResponseDAO.h"
-#include <stdio.h>
-#include "tone.h"
-#include "servo.h"
+#include "operations_module.h"
 
 
 // Assuming device_UID is a string, adjust the type accordingly

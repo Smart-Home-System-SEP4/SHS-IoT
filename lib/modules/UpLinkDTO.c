@@ -1,10 +1,8 @@
 // UpLinkDTO.c
 #include "UpLinkDTO.h"
-#include "includes.h"
-#include "uid_constants.h"
 
 
-#include "cJSON.h"
+
 
 UpLinkDTO* createUpLinkDTO(uint8_t temperature_integer, uint8_t temperature_decimal,
                            uint8_t humidity_integer, const char* device_UID) {
