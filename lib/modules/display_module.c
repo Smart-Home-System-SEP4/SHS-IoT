@@ -2,7 +2,6 @@
 #include "includes.h"
 #include "display.h"
 
-
 void displayData(uint8_t temperature_integer, uint8_t temperature_decimal, uint8_t humidity_integer) {
     // Break down the values for temperature integer
     uint8_t temp_int_tens = temperature_integer / 10;
@@ -13,13 +12,11 @@ void displayData(uint8_t temperature_integer, uint8_t temperature_decimal, uint8
     uint8_t hum_int_ones = humidity_integer % 10;
 
     display_setValues(temp_int_tens, temp_int_ones, 17, 12);
-    _delay_ms(4000); // Display for 4 seconds
+    DELAY_MS(4000); // Display for 4 seconds
 
-    
     display_setValues(hum_int_tens, hum_int_ones, 17, 18); // Assuming 18 is for dot and 19 is for underscore
-    _delay_ms(4000); // Display for 4 seconds
+    DELAY_MS(4000); // Display for 4 seconds
 
     display_setValues(0, 0, 0, 0);
-    _delay_ms(1000); // Display for 1 second
-
+    DELAY_MS(1000); // Display for 1 second
 }

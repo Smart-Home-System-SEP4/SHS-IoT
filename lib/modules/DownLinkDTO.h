@@ -5,7 +5,8 @@
 #include "cJSON.h" // Include the cJSON library header
 #include <stdint.h>
 
-#define UID_LENGTH 12 // Define the length of the UID
+#define UID_LENGTH 16 // Define the length of the UID
+IoT-development
 
 typedef struct {
     char device_UID[UID_LENGTH];

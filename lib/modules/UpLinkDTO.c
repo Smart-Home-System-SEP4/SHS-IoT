@@ -2,7 +2,7 @@
 #include "UpLinkDTO.h"
 #include "includes.h"
 #include "uid_constants.h"
-#include <avr/eeprom.h>
+
 
 #include "cJSON.h"
 
