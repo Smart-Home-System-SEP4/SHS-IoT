@@ -1,12 +1,15 @@
-// display_module.c
 #include "display_module.h"
 
-#ifdef AVR_PLATFORM
-    #include <util/delay.h>
-    #define DELAY_MS(ms) _delay_ms(ms)
+#ifdef __AVR__
+#include <util/delay.h>
+#define DELAY_MS(ms) _delay_ms(ms)
 #else
-    #define DELAY_MS(ms)
+    #include <unistd.h>
+    #define DELAY_MS(ms) customDelay_ms(ms)
 #endif
+
+// Prototype for a custom delay function
+void customDelay_ms(uint16_t ms);
 
 void displayData(uint8_t temperature_integer, uint8_t temperature_decimal, uint8_t humidity_integer) {
     // Break down the values for temperature integer
@@ -23,6 +26,15 @@ void displayData(uint8_t temperature_integer, uint8_t temperature_decimal, uint8
     display_setValues(hum_int_tens, hum_int_ones, 17, 18); // Assuming 18 is for dot and 19 is for underscore
     DELAY_MS(4000); // Display for 4 seconds
 
-    display_setValues(0, 0, 0, 0);
-    DELAY_MS(1000); // Display for 1 second
+    display_setValues(9, 9, 8, 8);
+    DELAY_MS(1000); // Display for 1 second
 }
+
+#ifdef AVR_PLATFORM
+    // If on AVR platform, use the built-in _delay_ms
+#else
+    // Custom delay function for non-AVR platforms
+    void customDelay_ms(uint16_t ms) {
+        usleep(ms * 1000);  // Sleep in microseconds
+    }
+#endif

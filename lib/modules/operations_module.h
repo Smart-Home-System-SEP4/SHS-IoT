@@ -9,8 +9,11 @@
 #include "DownLinkDTO.h"
 #include "cJSON.h"
 #include "dht11_module.h"
+#include"dht11.h"
 #include "display_module.h"
+#include"display.h"
 #include "wifi_module.h"
+#include"wifi.h"
 #include "uid_constants.h"
 #include "ServerResponseDAO.h"
 #include <stdio.h>
