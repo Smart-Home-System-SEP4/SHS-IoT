@@ -10,7 +10,8 @@
 #include "uid_constants.h"
 #include "ServerResponseDAO.h"
 #include <stdio.h>
-#include"tone.h"
+#include "tone.h"
+#include "servo.h"
 
 
 // Assuming device_UID is a string, adjust the type accordingly
@@ -23,13 +24,16 @@ extern char serverResponseJsonString[MAX_RESPONSE_LENGTH];  // Extern declaratio
 DownLinkDTO* getTestDownLinkDTO() {
     DownLinkDTO* testDownLinkDTO = (DownLinkDTO*)malloc(sizeof(DownLinkDTO));
     if (testDownLinkDTO != NULL) {
-        testDownLinkDTO->temperature_limit_high = 24;
-        testDownLinkDTO->temperature_limit_low = 22;
-        testDownLinkDTO->humidity_limit_high = 40;
-        testDownLinkDTO->humidity_limit_low = 40;
-        testDownLinkDTO->servo_limit_high = 180;
-        testDownLinkDTO->servo_normal = 90;
-        testDownLinkDTO->servo_limit_low = 0;
+        // testDownLinkDTO->temperature_limit_high = 24;
+        // testDownLinkDTO->temperature_limit_low = 22;
+        // testDownLinkDTO->humidity_limit_high = 40;
+        // testDownLinkDTO->humidity_limit_low = 40;
+        // testDownLinkDTO->servo_limit_high = 180;
+        // testDownLinkDTO->servo_normal = 90;
+        // testDownLinkDTO->servo_limit_low = 0;
+        testDownLinkDTO ->device_UID;
+        testDownLinkDTO ->servo_angle = 90;
+        
     }
     return testDownLinkDTO;
 }
@@ -76,22 +80,24 @@ void performOperations() {
         }
         
         // Get a test DownLinkDTO (replace this with actual logic)
-        DownLinkDTO* downlinkDto = deserializeDownLinkDTO(serverResponseJsonString);
-        //DownLinkDTO* downlinkDto = getTestDownLinkDTO();
+        //DownLinkDTO* downlinkDto = deserializeDownLinkDTO(serverResponseJsonString);
+        DownLinkDTO* downlinkDto = getTestDownLinkDTO();
 
         // Serialize DownLinkDTO to JSON
-        cJSON* downlinkJson = serializeDownLinkDTO(downlinkDto);
+        cJSON* downlinkJson = serializeNewDownLinkDTO(downlinkDto);
 
         // Move servo based on conditions
-        moveServoModuleBasedOnConditions(temperature_integer, humidity_integer, downlinkDto);
+        //moveServoModuleBasedOnConditions(temperature_integer, humidity_integer, downlinkDto);
+       moveNewAngle(downlinkDto);
+        
 
         // Deserialize DownLinkDTO from JSON (if needed)
-        DownLinkDTO* deserializedDownlinkDto = deserializeDownLinkDTO(downlinkJson);
+        DownLinkDTO* deserializedNewDownlinkDto = deserializeNewDownLinkDTO(downlinkJson);
 
         // Clean up
         cJSON_Delete(uplinkJson);
         cJSON_Delete(downlinkJson);
         free(downlinkDto);
-        free(deserializedDownlinkDto);  // Free if deserializedDownlinkDto was used
+        free(deserializedNewDownlinkDto);  // Free if deserializedDownlinkDto was used
     }
 }
