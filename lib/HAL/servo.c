@@ -7,11 +7,6 @@
 
 static uint8_t currentServoPosition = 0;
 
-void initServo() {
-    // Initialize as output
-    DDR_SERVO |= (1 << P_SERVO);
-    moveServoToAngle(0);  // Initialize to 0 degrees
-}
 
 void moveServoToAngle(uint8_t angle) {
     if (angle < 0)
@@ -59,4 +54,9 @@ void moveServoToAngle(uint8_t angle) {
 
 uint8_t getServoPosition(void) {
     return currentServoPosition;
+}
+void initServo() {
+    // Initialize as output
+    DDR_SERVO |= (1 << P_SERVO);
+    moveServoToAngle(0);  // Initialize to 0 degrees
 }
