@@ -26,13 +26,14 @@ jobs:
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
 
-      - name: Run DISPLAY_Test
-        run:  | 
+      - name: Run DHT11_DISPLAY_SERVO_Test
+        run:  |    
           pio test -e win_test -v
           pio test -e win_test_wifi -v
           pio test -e win_test_pc_comm -v
           pio test -e win_test_light -v
-#         pio test -e target_test -v 
+#          pio test -e target_test -v
+          
           
 
 

@@ -4,6 +4,11 @@
 
 #include "includes.h"
 #include "cJSON.h"
+#include "wifi.h"
+#include "pc_comm.h"
+#include <stdlib.h>
+#include <stdio.h>
+
 
 typedef void (*WiFiCallback)(const char* data);
 

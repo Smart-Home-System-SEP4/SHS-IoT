@@ -4,7 +4,7 @@
 #define DHT11_MODULE_H
 
 #include "includes.h"
-
+#include "dht11.h"
 int readDHT11DataWithRetry(uint8_t *humidity_integer, uint8_t *humidity_decimal, uint8_t *temperature_integer, uint8_t *temperature_decimal);
 
 #endif // DHT11_MODULE_H
