@@ -4,8 +4,8 @@
 #include <util/delay.h>
 #define DELAY_MS(ms) _delay_ms(ms)
 #else
-    #include <unistd.h>
-    #define DELAY_MS(ms) customDelay_ms(ms)
+    
+    #define DELAY_MS(ms) 
 #endif
 
 // Prototype for a custom delay function
