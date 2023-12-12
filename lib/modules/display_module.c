@@ -1,5 +1,5 @@
 // display_module.c
-#include "display.h"
+#include "display_module.h"
 
 #ifdef AVR_PLATFORM
     #include <util/delay.h>
