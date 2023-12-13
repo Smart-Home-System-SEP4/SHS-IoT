@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pio lib install --global throwtheswitch/Unity@^2.5.2
+          pio lib install throwtheswitch/Unity@^2.5.2
 
       - name: Run DHT11_Test
         run:  |    
