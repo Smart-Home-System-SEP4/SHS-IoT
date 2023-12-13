@@ -33,30 +33,30 @@ cJSON* serializeUpLinkDTO(const UpLinkDTO* dto) {
     return json;
 }
 
-// UpLinkDTO* deserializeUpLinkDTO(const cJSON* json) {
-//     UpLinkDTO* dto = (UpLinkDTO*)malloc(sizeof(UpLinkDTO));
+UpLinkDTO* deserializeUpLinkDTO(const cJSON* json) {
+    UpLinkDTO* dto = (UpLinkDTO*)malloc(sizeof(UpLinkDTO));
 
-//     if (dto != NULL) {
-//         cJSON* uid = cJSON_GetObjectItemCaseSensitive(json, "device_UID");
-//         cJSON* tempInt = cJSON_GetObjectItemCaseSensitive(json, "temperature_integer");
-//         cJSON* tempDec = cJSON_GetObjectItemCaseSensitive(json, "temperature_decimal");
-//         cJSON* humInt = cJSON_GetObjectItemCaseSensitive(json, "humidity_percentage");
+    if (dto != NULL) {
+        cJSON* uid = cJSON_GetObjectItemCaseSensitive(json, "device_UID");
+        cJSON* tempInt = cJSON_GetObjectItemCaseSensitive(json, "temperature_integer");
+        cJSON* tempDec = cJSON_GetObjectItemCaseSensitive(json, "temperature_decimal");
+        cJSON* humInt = cJSON_GetObjectItemCaseSensitive(json, "humidity_percentage");
         
 
-//         if (cJSON_IsNumber(tempInt) && cJSON_IsNumber(tempDec) && cJSON_IsNumber(humInt) && cJSON_IsString(uid)) {
+        if (cJSON_IsNumber(tempInt) && cJSON_IsNumber(tempDec) && cJSON_IsNumber(humInt) && cJSON_IsString(uid)) {
            
-//             strncpy(dto->device_UID, uid->valuestring, UID_LENGTH);
-//             dto->device_UID[UID_LENGTH] = '\0';  // Ensure null termination
+            strncpy(dto->device_UID, uid->valuestring, UID_LENGTH);
+            dto->device_UID[UID_LENGTH] = '\0';  // Ensure null termination
 
-//             dto->temperature_integer = tempInt->valueint;
-//             dto->temperature_decimal = tempDec->valueint;
-//             dto->humidity_integer = humInt->valueint;
+            dto->temperature_integer = tempInt->valueint;
+            dto->temperature_decimal = tempDec->valueint;
+            dto->humidity_integer = humInt->valueint;
             
-//         } else {
-//             free(dto);
-//             return NULL; // Return NULL if deserialization fails
-//         }
-//     }
+        } else {
+            free(dto);
+            return NULL; // Return NULL if deserialization fails
+        }
+    }
 
-//     return dto;
-// }
+    return dto;
+}

@@ -1,3 +1,4 @@
+//test_servo.c
 #include "unity.h"
 #include "../fff.h"
 #include "DownLinkDTO.h"
@@ -6,7 +7,6 @@
 #include"tone.h"
 DEFINE_FFF_GLOBALS;
 
-// Mock or fake functions
 FAKE_VALUE_FUNC0(uint8_t, getServoPosition);
 FAKE_VOID_FUNC0(tone_play_windows_xp_error);
 FAKE_VOID_FUNC1(moveServoToAngle, uint8_t);
@@ -22,9 +22,7 @@ void setUp(void) {
     FFF_RESET_HISTORY();
 }
 
-void tearDown(void) {
-    // Clean up any resources
-}
+void tearDown(void) {}
 
 void test_MoveNewAngle_ServoNotAtAngle_ShouldMoveServo(void) {
     // Arrange

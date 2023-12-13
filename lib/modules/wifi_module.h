@@ -14,4 +14,5 @@ typedef void (*WiFiCallback)(const char* data);
 
 void initPCCommAndWiFi();
 void sendDTO_to_WiFi(const cJSON* json);
+void wifiDataCallback(const char* data);
 #endif // WIFI_MODULE_H

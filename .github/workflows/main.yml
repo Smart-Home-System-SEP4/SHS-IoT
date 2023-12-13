@@ -26,13 +26,65 @@ jobs:
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
 
-      - name: Run DHT11_DISPLAY_SERVO_Test
+      - name: Run DHT11_Test
         run:  |    
           pio test -e win_test -v
           pio test -e win_test_wifi -v
           pio test -e win_test_pc_comm -v
           pio test -e win_test_light -v
 #          pio test -e target_test -v
+
+      - name: Run Display_Test
+        run:  |    
+          pio test -e win_test -v
+          pio test -e win_test_wifi -v
+          pio test -e win_test_pc_comm -v
+          pio test -e win_test_light -v
+
+      - name: Run DownLinkDTO_Test
+        run:  |    
+          pio test -e win_test -v
+          pio test -e win_test_wifi -v
+          pio test -e win_test_pc_comm -v
+          pio test -e win_test_light -v
+
+      - name: Run ServerResponse_Test
+        run:  |    
+          pio test -e win_test -v
+          pio test -e win_test_wifi -v
+          pio test -e win_test_pc_comm -v
+          pio test -e win_test_light -v
+
+      - name: Run SERVO_Test
+        run:  |    
+          pio test -e win_test -v
+          pio test -e win_test_wifi -v
+          pio test -e win_test_pc_comm -v
+          pio test -e win_test_light -v
+
+      - name: Run devide_UID_Test
+        run:  |    
+          pio test -e win_test -v
+          pio test -e win_test_wifi -v
+          pio test -e win_test_pc_comm -v
+          pio test -e win_test_light -v
+
+      - name: Run UpLinkDTO_Test
+        run:  |    
+          pio test -e win_test -v
+          pio test -e win_test_wifi -v
+          pio test -e win_test_pc_comm -v
+          pio test -e win_test_light -v
+
+      - name: Run WiFi(TCP)_Test
+        run:  |    
+          pio test -e win_test -v
+          pio test -e win_test_wifi -v
+          pio test -e win_test_pc_comm -v
+          pio test -e win_test_light -v
+
+
+
           
           
 
