@@ -1,5 +1,5 @@
 
-//test_display
+//test_display.c
 
 #include "unity.h"
 #include "../fff.h"  // Adjust the path accordingly
@@ -18,8 +18,7 @@ void setUp(void) {
     display_init();
 }
 
-void tearDown(void) {
-}
+void tearDown(void) {}
 
 void test_DisplayModuleInitialization(void) {
     // Test display module initialization

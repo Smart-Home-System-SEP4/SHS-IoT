@@ -20,7 +20,6 @@
 #include "tone.h"
 
 
-
 void initializeSensors();
 void performOperations();
 DownLinkDTO* getTestDownLinkDTO();

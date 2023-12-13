@@ -47,6 +47,16 @@ DownLinkDTO* deserializeNewDownLinkDTO(const cJSON* json) {
     return dto;
 }
 
+
+
+
+
+
+
+
+
+//Not used by Cloud-Team
+
 DownLinkDTO* createDownLinkDTO(const char* device_UID, uint8_t temperature_limit_high,
                                uint8_t temperature_limit_low, uint8_t humidity_limit_high,
                                uint8_t humidity_limit_low, uint8_t servo_limit_high, uint8_t servo_normal,
@@ -54,7 +64,6 @@ DownLinkDTO* createDownLinkDTO(const char* device_UID, uint8_t temperature_limit
     DownLinkDTO* dto = (DownLinkDTO*)malloc(sizeof(DownLinkDTO));
 
     if (dto != NULL) {
-        // Copy UID to the DTO
         strncpy(dto->device_UID, device_UID, UID_LENGTH - 1); // Adjust length to avoid buffer overflow
         dto->device_UID[UID_LENGTH - 1] = '\0';  // Ensure null termination
         // Set temperature, humidity, and servo limits
