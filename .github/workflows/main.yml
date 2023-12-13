@@ -66,12 +66,12 @@ jobs:
           pio test -e win_test_pc_comm -v
           pio test -e win_test_light -v
 
-      - name: Run device_UID_Test
-        run:  |    
-          pio test -e win_test -v
-          pio test -e win_test_wifi -v
-          pio test -e win_test_pc_comm -v
-          pio test -e win_test_light -v
+      # - name: Run device_UID_Test
+      #   run:  |    
+      #     pio test -e win_test -v
+      #     pio test -e win_test_wifi -v
+      #     pio test -e win_test_pc_comm -v
+      #     pio test -e win_test_light -v
 
       - name: Run UpLinkDTO_Test
         run:  |    
