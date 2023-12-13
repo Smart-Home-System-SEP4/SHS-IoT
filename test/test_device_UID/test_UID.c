@@ -1,3 +1,5 @@
+//test_UID.c
+
 #include "unity.h"
 #include "uid_constants.h"
 #include "includes.h"
@@ -17,6 +19,8 @@ FAKE_VOID_FUNC(eeprom_clear);
 void setUp(void) {
     // Initialize FFF
     FFF_RESET_HISTORY();
+
+    void eeprom_clear(void);
 }
 
 void tearDown(void) {}
@@ -47,6 +51,10 @@ void test_ReadDeviceUID(void) {
     // Act
     char uid[UID_LENGTH + 1];
     readDeviceUID(uid);
+
+    // Debugging output
+    printf("Expected UID: %s\n", defaultUID);
+    printf("Actual UID: %s\n", uid);
 
     // Assert
     TEST_ASSERT_EQUAL_INT(1, readDeviceUID_fake.call_count);
