@@ -20,7 +20,7 @@ void setUp(void) {
     // Initialize FFF
     FFF_RESET_HISTORY();
 
-    void eeprom_clear(void);
+    eeprom_clear();
 }
 
 void tearDown(void) {}
