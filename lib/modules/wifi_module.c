@@ -80,7 +80,7 @@ void receiveData(const char* data) {
     printf("Raw Received Data in receiveData: %s\n", data);
 
     // Placeholder processing logic: Convert received data to uppercase
-    char processedData[254];  // Adjust the buffer size as needed
+    char processedData[128];  // Adjust the buffer size as needed
     // Ensure data is not NULL before processing
     if (data != NULL) {
         processedData[strlen(data)] = '\0';
