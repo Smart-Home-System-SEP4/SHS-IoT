@@ -26,6 +26,10 @@ jobs:
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
 
+      - name: Install Dependencies
+        run: |
+          pio lib install --global throwtheswitch/Unity@^2.5.2
+
       - name: Run DHT11_Test
         run:  |    
           pio test -e win_test -v
